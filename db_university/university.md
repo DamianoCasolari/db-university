@@ -21,7 +21,7 @@ WHERE DATEDIFF(NOW(), date_of_birth) / 365 > 30;
 4. Selezionare tutti i corsi del primo semestre del primo anno di un qualsiasi corso di
 laurea (286)
 
-SELECT *
+SELECT name,period,year
 FROM `courses`
 WHERE `period` = 'I semestre' AND `year` = 1;
 
@@ -34,5 +34,17 @@ FROM `exams`
 WHERE DATE(`date`) = '2020-06-20' AND HOUR(`hour`) > 14;
 
 6. Selezionare tutti i corsi di laurea magistrale (38)
+
+SELECT name
+FROM `degrees`
+WHERE `level` = 'magistrale';
+
 7. Da quanti dipartimenti è composta l'università? (12)
+
+SELECT name, head_of_department, address, website
+FROM `departments`;
+
 8. Quanti sono gli insegnanti che non hanno un numero di telefono? (50)
+
+SELECT COUNT(id) FROM teachers
+WHERE `phone` IS NULL;
