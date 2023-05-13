@@ -48,3 +48,121 @@ FROM `departments`;
 
 SELECT COUNT(id) FROM teachers
 WHERE `phone` IS NULL;
+
+
+	
+
+
+# Database University
+
+## Data types
+
+    - Strings: varchar(number) (max255), char(number), text, longtext
+    - numbers: tinyint, small/medium int , int, bigint        
+    - decimals: float(i,d), double(i,d), decimal(i,d)
+    - dates: DATETIME, DATE, YEAR, TIME, TIMESTAMP
+
+
+># Tables
+
+- course_teacher          
+-  courses                 
+-  degrees                 
+-  departments             
+-  exam_student            
+-  exams                   
+-  students                
+-  teachers     
+
+
+># Table name : courses
+>## Entity name: course
+
+
+>## Table column 
+ id           bigint(20) unsigned  NO    PRI  NULL     auto_increment 
+ degree_id    bigint(20) unsigned  NO    MUL  NULL                    
+ name         varchar(255)         NO         NULL                    
+ description  text                 YES        NULL                    
+ period       varchar(255)         NO         NULL                    
+ year         tinyint(3) unsigned  NO         NULL                    
+ cfu          tinyint(3) unsigned  NO         NULL                    
+ website      varchar(255)         YES        NULL                    
+
+
+># Table name : degreeses
+ >## Entity name: degrees
+
+>## Table column 
+ Field          Type                 Null  Key  Default  Extra          
++---------------+---------------------+------+-----+---------
+ 
+ id             bigint(20) unsigned  NO    PRI  NULL     auto_increment 
+ department_id  bigint(20) unsigned  NO    MUL  NULL                    
+ name           varchar(255)         NO         NULL                    
+ level          varchar(255)         NO         NULL                    
+ address        varchar(255)         NO         NULL                    
+ email          varchar(255)         NO         NULL                    
+ website        varchar(255)         NO         NULL                       
+
+># Table name : departments
+  >## Entity name: department
+
+>## Table column 
+ Field              Type                Null Key Default Extra         
++--------------------+---------------------+------+-----
+
+id                 bigint(20) unsigned NO   PRI NULL    auto_increment
+name               varchar(255)        NO       NULL                  
+address            varchar(255)        NO       NULL                  
+phone              varchar(255)        YES      NULL                  
+email              varchar(255)        NO   UNI NULL                  
+website            varchar(255)        NO       NULL                  
+head_of_department varchar(255)        NO       NULL                    
+
+># Table name : exams
+>## Entity name: exam
+
+>## Table column 
+Field     Type                Null Key Default Extra          
++-----------+---------------------+------+-----+---------
+
+id        bigint(20) unsigned NO   PRI NULL    auto_increment 
+course_id bigint(20) unsigned NO   MUL NULL                   
+date      date                NO       NULL                   
+hour      time                NO       NULL                   
+location  varchar(255)        NO       NULL                   
+address   varchar(255)        NO       NULL                     
+
+># Table name : studenst
+>## Entity name: student
+
+>## Table column 
+ Field                Type                 Null  Key  Default  Extra          
++---------------------+---------------------+------+-----
+
+ id                   bigint(20) unsigned  NO    PRI  NULL     auto_increment 
+ degree_id            bigint(20) unsigned  NO    MUL  NULL                    
+ name                 varchar(255)         NO         NULL                    
+ surname              varchar(255)         NO         NULL                    
+ date_of_birth        date                 NO         NULL                    
+ fiscal_code          varchar(255)         NO         NULL                    
+ enrolment_date       date                 NO         NULL                    
+ registration_number  varchar(255)         NO         NULL                    
+ email                varchar(255)         NO    UNI  NULL   
+
+
+># Table name : teachers
+>## Entity name: teacher
+
+>## Table column 
+ Field           Type                 Null  Key  Default  Extra          
++----------------+---------------------+------+-----
+
+ id              bigint(20) unsigned  NO    PRI  NULL     auto_increment 
+ name            varchar(255)         NO         NULL                    
+ surname         varchar(255)         NO         NULL                    
+ phone           varchar(255)         YES        NULL                    
+ email           varchar(255)         NO    UNI  NULL                    
+ office_address  varchar(255)         NO         NULL                    
+ office_number   varchar(255)         NO         NULL                 
