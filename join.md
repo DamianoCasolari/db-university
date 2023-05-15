@@ -54,4 +54,15 @@ ORDER BY `teachers` . `name`;
 
 
 7. BONUS: Selezionare per ogni studente quanti tentativi d’esame ha sostenuto per
-superare ciascuno dei suoi esam
+superare ciascuno dei suoi esami
+
+SELECT `students`. `name` ,`students`. `surname` ,`students`. `fiscal_code` , `courses` . `name` as 'name_exam', COUNT(`exam_student` . `exam_id`) AS 'number of attempts for a specific exam', MAX(`exam_student` . `vote`) AS 'final_vote'
+FROM `students`
+JOIN `exam_student`  ON `students`.`id` = `exam_student` . `student_id`
+JOIN `exams`  ON `exams` . `id` = `exam_student`.`exam_id`
+JOIN `courses`  ON `exams` . `course_id` = `courses`.`id`
+WHERE `exam_student` . `exam_id` < 18
+GROUP BY `students`.`name`,`students` . `surname` ,`students`. `fiscal_code`, `courses`.`name`
+ORDER BY `students` . `name`, `students` . `surname`;
+
+
